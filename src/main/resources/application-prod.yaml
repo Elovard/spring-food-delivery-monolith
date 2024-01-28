@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/food
+    username: ${}
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    enabled: true
