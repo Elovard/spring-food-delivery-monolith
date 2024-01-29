@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1703077893038-1" author="elovard (generated)">
+        <createTable tableName="business_contacts">
+            <column name="business_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contacts" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-2" author="elovard (generated)">
+        <createTable tableName="tb_business">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tb_business"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="BIGINT"/>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-3" author="elovard (generated)">
+        <createTable tableName="tb_business_products">
+            <column name="business_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="products_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-4" author="elovard (generated)">
+        <createTable tableName="tb_client">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tb_client"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="BIGINT"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="rating" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-5" author="elovard (generated)">
+        <createTable tableName="tb_courier">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tb_courier"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="rating" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transport" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-6" author="elovard (generated)">
+        <createTable tableName="tb_order">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tb_order"/>
+            </column>
+            <column name="created_date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="BIGINT"/>
+            <column name="courier_status" type="SMALLINT"/>
+            <column name="status" type="SMALLINT"/>
+            <column name="courier_id" type="BIGINT"/>
+            <column name="producer_id" type="BIGINT"/>
+            <column name="consumer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-7" author="elovard (generated)">
+        <createTable tableName="tb_products">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tb_products"/>
+            </column>
+            <column name="created_date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="BIGINT"/>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1703077893038-8" author="elovard (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_tb_business_email" tableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-9" author="elovard (generated)">
+        <addUniqueConstraint columnNames="phone_number" constraintName="uc_tb_business_phone_number"
+                             tableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-10" author="elovard (generated)">
+        <addUniqueConstraint columnNames="products_id" constraintName="uc_tb_business_products_products"
+                             tableName="tb_business_products"/>
+    </changeSet>
+    <changeSet id="1703077893038-11" author="elovard (generated)">
+        <addUniqueConstraint columnNames="username" constraintName="uc_tb_business_username" tableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-12" author="elovard (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_tb_client_email" tableName="tb_client"/>
+    </changeSet>
+    <changeSet id="1703077893038-13" author="elovard (generated)">
+        <addUniqueConstraint columnNames="phone_number" constraintName="uc_tb_client_phone_number"
+                             tableName="tb_client"/>
+    </changeSet>
+    <changeSet id="1703077893038-14" author="elovard (generated)">
+        <addUniqueConstraint columnNames="username" constraintName="uc_tb_client_username" tableName="tb_client"/>
+    </changeSet>
+    <changeSet id="1703077893038-15" author="elovard (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_tb_courier_email" tableName="tb_courier"/>
+    </changeSet>
+    <changeSet id="1703077893038-16" author="elovard (generated)">
+        <addUniqueConstraint columnNames="phone_number" constraintName="uc_tb_courier_phone_number"
+                             tableName="tb_courier"/>
+    </changeSet>
+    <changeSet id="1703077893038-17" author="elovard (generated)">
+        <addUniqueConstraint columnNames="username" constraintName="uc_tb_courier_username" tableName="tb_courier"/>
+    </changeSet>
+    <changeSet id="1703077893038-18" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="consumer_id" baseTableName="tb_order"
+                                 constraintName="FK_TB_ORDER_ON_CONSUMER" referencedColumnNames="id"
+                                 referencedTableName="tb_client"/>
+    </changeSet>
+    <changeSet id="1703077893038-19" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="courier_id" baseTableName="tb_order"
+                                 constraintName="FK_TB_ORDER_ON_COURIER" referencedColumnNames="id"
+                                 referencedTableName="tb_courier"/>
+    </changeSet>
+    <changeSet id="1703077893038-20" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="producer_id" baseTableName="tb_order"
+                                 constraintName="FK_TB_ORDER_ON_PRODUCER" referencedColumnNames="id"
+                                 referencedTableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-21" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="business_id" baseTableName="tb_products"
+                                 constraintName="FK_TB_PRODUCTS_ON_BUSINESS" referencedColumnNames="id"
+                                 referencedTableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-22" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="business_id" baseTableName="business_contacts"
+                                 constraintName="fk_business_contacts_on_business" referencedColumnNames="id"
+                                 referencedTableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-23" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="business_id" baseTableName="tb_business_products"
+                                 constraintName="fk_tbbuspro_on_business" referencedColumnNames="id"
+                                 referencedTableName="tb_business"/>
+    </changeSet>
+    <changeSet id="1703077893038-24" author="elovard (generated)">
+        <addForeignKeyConstraint baseColumnNames="products_id" baseTableName="tb_business_products"
+                                 constraintName="fk_tbbuspro_on_product" referencedColumnNames="id"
+                                 referencedTableName="tb_products"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,76 @@
+GET http://localhost:8080/db
+
+###
+
+GET http://localhost:8080/client
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsInR5cGUiOiJDTElFTlQiLCJpYXQiOjE3MDI1NDAxNTYsImV4cCI6MTcwMjU0Mzc1Nn0.QTI0uxVlgLaArURMBLYfrct2qaMwBCxtNgsiUqoV89o
+
+###
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "test",
+  "type": "client"
+}
+
+###
+
+POST http://localhost:8080/user/client
+Content-Type: application/json
+
+{
+  "firstName": "Denis",
+  "lastName": "Petrov",
+  "username": "test",
+  "password": "test",
+  "email": "test@gmail.com",
+  "phoneNumber": "+275778909090"
+}
+
+###
+
+POST http://localhost:8080/user/courier
+Content-Type: application/json
+
+{
+  "name": "Denis",
+  "username": "denchik",
+  "password": "test",
+  "email": "denchik@gmail.com",
+  "phoneNumber": "+228"
+}
+
+###
+
+POST http://localhost:8080/user/business
+Content-Type: application/json
+
+{
+  "username": "kfc",
+  "password": "123",
+  "email": "kfc@gmail.com",
+  "description": "",
+  "phoneNumber": "+321",
+  "title": "kfc"
+}
+
+###
+
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "username": "kfc",
+  "password": "123",
+  "type": "business"
+}
+
+###
+
+GET http://localhost:8080/api/business
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZmMiLCJlbWFpbCI6ImtmY0BnbWFpbC5jb20iLCJ0eXBlIjoiQlVTSU5FU1MiLCJpYXQiOjE3MDI1NDEwNDMsImV4cCI6MTcwMjU0NDY0M30.SPdrMeHK7qcI5fVQE0YNEQhdL4Iyi5Poxfa5zTfiYac
+
+###
